@@ -3,5 +3,6 @@ console.log(`Number of categories: ${document.querySelectorAll('.item').length}`
 
 categoryListArr.forEach((elem)=> {
     console.log(`Category:${elem.firstElementChild.textContent}`);
-    console.log(`Elements:${elem.querySelectorAll('li').length}`);
-});
+    const listEl = elem.lastElementChild;
+    console.log(listEl.children.length);
+    });

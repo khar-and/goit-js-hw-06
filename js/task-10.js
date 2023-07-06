@@ -11,15 +11,24 @@ const divEl = document.getElementById('boxes');
 
 const divWidthHeight = 30;
 let collectionArr = [];
+// змінні для валідації кількості дівов
+const minCountDiv = Number(inputEl.getAttribute('min'));
+const maxCountDiv = Number(inputEl.getAttribute('max'));
+const step = Number(inputEl.getAttribute('step'))
 
 btnCreateEl.addEventListener('click', onCreateCollection);
 btnDestroyEl.addEventListener('click', destroyBoxes);
 
 function onCreateCollection(event) {
-  createBoxes(Number(inputEl.value))    
+  if (Number(inputEl.value) < minCountDiv || Number(inputEl.value) > maxCountDiv) {
+    alert("Кількість елементів колекції повинна знаходитись в межах від 1 до 100 елементів!")    
+  } else {
+    createBoxes(Number(inputEl.value));    
+  }
+  
 }
 function createBoxes(amount) {
-  for (let i = 0; i < amount; i++) {
+  for (let i = 0; i < amount; i += step) {
     const elementDivOfCollection = document.createElement('div');
     elementDivOfCollection.style.width = `${divWidthHeight + i *10}px`;
     elementDivOfCollection.style.height = `${divWidthHeight + i *10}px`;

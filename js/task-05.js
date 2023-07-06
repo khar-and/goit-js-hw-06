@@ -4,5 +4,11 @@ const textSpan = document.querySelector('span');
 textInput.addEventListener('input', onTextChangeInput);
 
 function onTextChangeInput(event) {
-    textSpan.textContent = event.currentTarget.value;
+    let textWithoutSpace = event.currentTarget.value.trim();
+    if (textWithoutSpace !== "") {
+        textSpan.textContent = textWithoutSpace; 
+    } else {
+        textSpan.textContent = "Anonymous"; 
+    }
 }
+    

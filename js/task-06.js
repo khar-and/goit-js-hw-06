@@ -10,7 +10,7 @@ function onReturnFocusInput(event) {
 
 function onOffFocus(event) {
     console.log('off');
-    if (Number(inputLength) !== Number(textInput.value.length)) {
+    if (Number(inputLength) !== Number(textInput.value.trim().length)) {
         textInput.classList.add('invalid');
         console.log('не равно 6');
     }
